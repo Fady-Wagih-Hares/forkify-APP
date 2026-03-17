@@ -233,5 +233,3 @@ Built as a capstone project from [Jonas Schmedtmann's The Complete JavaScript Co
 This project is licensed under the **ISC License**.
 
 ---
-
-<p align="center">Made with ❤️ and JavaScript</p>
