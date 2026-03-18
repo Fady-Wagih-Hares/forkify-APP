@@ -5,7 +5,8 @@ import resultsView from './views/resultsView.js';
 import PaginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
-import { MODEL_CLOSE_SEC } from './config.js'; 
+import { MODEL_CLOSE_SEC } from './config.js';
+import icons from 'url:../img/icons.svg'; // Fix deployment icons
 // polyfilling everthing else
 import 'core-js/stable'
 // polyfilling async /await
@@ -150,7 +151,18 @@ const controlAddRecipe =async function(newRecipe){
     
   }
 }
+// Fix static SVG icons in index.html for deployment (Vercel/Netlify)
+const fixStaticIcons = function () {
+  document.querySelectorAll('use[href]').forEach(useEl => {
+    const href = useEl.getAttribute('href');
+    if (href && href.startsWith('src/img/icons.svg')) {
+      useEl.setAttribute('href', href.replace('src/img/icons.svg', icons));
+    }
+  });
+};
+
 const init = function(){
+  fixStaticIcons()
   bookmarksView.addHandlerRender(controlBookMarks)
   // publisher | subscriber Pattern
   recipeView.addHandlerRender(controlRecipes)
