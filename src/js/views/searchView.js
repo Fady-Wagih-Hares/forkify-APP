@@ -1,4 +1,6 @@
 // Get Query and listening for click event
+import icons from 'url:../../img/icons.svg'; // Parcel 2
+
 class SearchView{
 _parentElement = document.querySelector('.search')
     getQuery(){

@@ -1,5 +1,6 @@
 // Parent Class
-import icons from 'url:../../img/icons.svg'
+import icons from 'url:../../img/icons.svg'; // Parcel 2
+
 class View{
 
 _data;

@@ -2,6 +2,7 @@ import View from './view.js';
 // import icons from '../img/icons.svg'; // Parcel 1
 // u have to write url: path if you need to access assets
 import icons from 'url:../../img/icons.svg'; // Parcel 2
+
 // console.log(icons);
 import fracty from 'fracty';
 // console.dir(fracty);

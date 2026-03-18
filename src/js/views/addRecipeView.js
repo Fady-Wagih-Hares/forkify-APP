@@ -1,4 +1,5 @@
-import icons from 'url:../../img/icons.svg'
+import icons from 'url:../../img/icons.svg'; // Parcel 2
+
 import View from './view.js'
 class AddRecipeView extends View
 {
