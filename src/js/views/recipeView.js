@@ -1,9 +1,4 @@
 import View from './view.js';
-// import icons from '../img/icons.svg'; // Parcel 1
-// u have to write url: path if you need to access assets
-import icons from 'url:../../img/icons.svg'; // Parcel 2
-
-// console.log(icons);
 import fracty from 'fracty';
 // console.dir(fracty);
 //  we need class because we will inherit all properties in child class view
@@ -58,7 +53,7 @@ _message = ''
       <div class="recipe__details">
         <div class="recipe__info">
           <svg class="recipe__info-icon">
-            <use href="${icons}#icon-clock"></use>
+            <use href="#icon-clock"></use>
           </svg>
           <span class="recipe__info-data recipe__info-data--minutes">${
             this._data.cookingTime
@@ -67,7 +62,7 @@ _message = ''
         </div>
         <div class="recipe__info">
           <svg class="recipe__info-icon">
-            <use href="${icons}#icon-users"></use>
+            <use href="#icon-users"></use>
           </svg>
           <span class="recipe__info-data recipe__info-data--people">${
             this._data.servings
@@ -79,14 +74,14 @@ _message = ''
               this._data.servings - 1
             }">
               <svg>
-                <use href="${icons}#icon-minus-circle"></use>
+                <use href="#icon-minus-circle"></use>
               </svg>
             </button>
             <button class="btn--tiny btn--update-servings" data-update-to="${
               this._data.servings + 1
             }">
               <svg>
-                <use href="${icons}#icon-plus-circle"></use>
+                <use href="#icon-plus-circle"></use>
               </svg>
             </button>
           </div>
@@ -94,12 +89,12 @@ _message = ''
 
         <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
           <svg>
-            <use href="${icons}#icon-user"></use>
+            <use href="#icon-user"></use>
           </svg>
         </div>
         <button class="btn--round btn--bookmark">
           <svg class="">
-            <use href="${icons}#icon-bookmark${
+            <use href="#icon-bookmark${
       this._data.bookMarked ? '-fill' : ''
     }"></use>
           </svg>
@@ -128,7 +123,7 @@ _message = ''
         >
           <span>Directions</span>
           <svg class="search__icon">
-            <use href="${icons}#icon-arrow-right"></use>
+            <use href="#icon-arrow-right"></use>
           </svg>
         </a>
       </div>
@@ -141,7 +136,7 @@ _message = ''
               return ` <li class="recipe__ingredient">
 
               <svg class="recipe__icon">
-                <use href="${icons}#icon-check"></use>
+                <use href="#icon-check"></use>
               </svg>
              
               <div class="recipe__description">

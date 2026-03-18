@@ -6,7 +6,6 @@ import PaginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import { MODEL_CLOSE_SEC } from './config.js';
-import iconsText from 'bundle-text:../img/icons.svg'; // Inline SVG at build time
 // polyfilling everthing else
 import 'core-js/stable'
 // polyfilling async /await
@@ -151,41 +150,6 @@ const controlAddRecipe =async function(newRecipe){
     
   }
 }
-// ── SVG Sprite Injection ────────────────────────────────────────────────────
-// Parcel's bundle-text: embeds the SVG content as a string at build time.
-// Injecting it inline means <use href="#icon-name"> always works — no fetch,
-// no timing issues, no cross-origin blocks on Vercel / Netlify.
-
-const fixUseElements = function (root) {
-  const list = root.querySelectorAll ? root.querySelectorAll('use[href]') : [];
-  list.forEach(useEl => {
-    const href = useEl.getAttribute('href');
-    // Strip file path, keep only the #fragment so it points to the inline sprite
-    if (href && href.includes('#') && href.includes('.svg')) {
-      useEl.setAttribute('href', '#' + href.split('#').pop());
-    }
-  });
-};
-
-// Inject the sprite SYNCHRONOUSLY before any view can render icons
-const wrap = document.createElement('div');
-wrap.style.cssText = 'display:none;position:absolute;width:0;height:0;overflow:hidden;';
-wrap.setAttribute('aria-hidden', 'true');
-wrap.innerHTML = iconsText;
-document.body.insertBefore(wrap, document.body.firstChild);
-
-// Fix all <use> elements already in the static HTML
-fixUseElements(document);
-
-// Watch for icons added later by JS views
-new MutationObserver(mutations => {
-  mutations.forEach(m =>
-    m.addedNodes.forEach(node => {
-      if (node.nodeType === 1) fixUseElements(node);
-    })
-  );
-}).observe(document.body, { childList: true, subtree: true });
-
 const init = function(){
   bookmarksView.addHandlerRender(controlBookMarks)
   recipeView.addHandlerRender(controlRecipes)
