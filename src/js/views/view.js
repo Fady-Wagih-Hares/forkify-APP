@@ -56,7 +56,7 @@ _data;
  renderSpinner () {
   const markup = `<div class="spinner">
           <svg>
-            <use href="${icons}#icon-loader"></use>
+            <use href="#icon-loader"></use>
           </svg>
         </div> `;
     this._clear();
