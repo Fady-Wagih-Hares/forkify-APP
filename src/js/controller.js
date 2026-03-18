@@ -10,7 +10,7 @@ import { MODEL_CLOSE_SEC } from './config.js';
 import 'core-js/stable'
 // polyfilling async /await
 import 'regenerator-runtime/runtime'
-import { MODEL_CLOSE_SEC } from './config';
+
 // this component does not have to knew about DOM 
 // const recipeContainer = document.querySelector('.recipe');
 
